@@ -9,7 +9,7 @@
 		</style>
 	</head>
 	<body>
-        
+
         <script src="js/three.js"></script>
         <script src="js/OrbitControls.js"></script>
 		<script>
@@ -34,7 +34,7 @@
 
                 var x = Math.cos(angle)*rad;
                 var y = Math.sin(angle)*rad;
-                var z = 0; 
+                var z = 0;
                 geometry.vertices.push( new THREE.Vector3(x,y,z) );
                 x *= 1.2;
                 y *= 1.2;
@@ -44,16 +44,16 @@
 
             for (let i = 0; i < count; i++) {
                 geometry.faces.push( new THREE.Face3(
-                    (2*i)%(2*count), 
+                    (2*i)%(2*count),
                     (2*i+3)%(2*count),
                     (2*i+1)%(2*count)
-                    ) 
+                    )
                 );
                 geometry.faces.push( new THREE.Face3(
                     (2*i)%(2*count),
                     (2*i+2)%(2*count),
                     (2*i+3)%(2*count)
-                    ) 
+                    )
                 );
             }
             /*
@@ -79,7 +79,7 @@
             //var material = new THREE.MeshBasicMaterial( { color: 0xffaa00, side: THREE.DoubleSide, wireframe: true} );
             //var material = new THREE.MeshNormalMaterial( { flatShading: true, side: THREE.DoubleSide} );
             //var material = new THREE.MeshPhongMaterial( {color: 0xffaa00,  side: THREE.DoubleSide} );
-            var texture = new  THREE.TextureLoader().load( "https://bensimonds.files.wordpress.com/2010/07/generator11.jpg" );
+            var texture = new  THREE.TextureLoader().load( "matcap.jpg" );
             var material = new THREE.MeshMatcapMaterial( {matcap: texture} );
 
             var mesh = new THREE.Mesh( geometry, material );
@@ -89,7 +89,7 @@
 
             var ambientLight = new THREE.AmbientLight( 0x404040 ); // soft white light
             scene.add( ambientLight );
-            
+
             scene.add(light);
             scene.add( mesh );
 
